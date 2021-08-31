@@ -7,10 +7,8 @@
   class='my-10'
 />
 
-{{#each this.currentPageObjects as |page|}}
-  {{#if (has-block)}}
-    {{yield page}}
-  {{else}}
-    <Page @page={{page}} class='mb-5 last:mb-0' />
-  {{/if}}
-{{/each}}
+{{#if (has-block)}}
+  {{yield this.currentPageObjects}}
+{{else}}
+  <Page @objects={{this.currentPageObjects}} class='mb-5 last:mb-0' />
+{{/if}}
