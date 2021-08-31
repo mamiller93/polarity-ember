@@ -25,7 +25,7 @@ module.exports = function (defaults) {
           require('tailwindcss')('./tailwind.config.js'),
           require('autoprefixer')(),
         ],
-        cacheInclude: [/.*\.(css|hbs)$/, /.tailwind\.config\.js$/],
+        cacheInclude: [/.*\.(css|hbs|html|ts|js)$/, /.tailwind\.config\.js$/],
       },
     },
     // },
