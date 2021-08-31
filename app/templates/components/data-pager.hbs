@@ -1,0 +1,16 @@
+<h1 class='text-4xl'>{{@title}}</h1>
+
+<Pagination
+  @currentPage={{this.currentPage}}
+  @maximumPage={{this.maximumPage}}
+  @onClick={{this.incrementPage}}
+  class='my-9'
+/>
+
+{{#each this.currentPageObjects as |page|}}
+  {{#if (has-block)}}
+    {{yield page}}
+  {{else}}
+    <Page @page={{page}} class='mb-5 last:mb-0' />
+  {{/if}}
+{{/each}}

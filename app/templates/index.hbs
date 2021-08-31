@@ -1,0 +1,51 @@
+<div>
+  {{#if this.useBlock}}
+    <DataPager
+      @data={{this.model}}
+      @title={{this.title}}
+      @pageSize={{this.pageSize}}
+      as |page|
+    >
+      {{#each-in page as |pageKey pageValue|}}
+        <p class='bg-red-200 text-xl'>{{pageKey}}: {{pageValue}}</p>
+      {{/each-in}}
+    </DataPager>
+  {{else}}
+    <DataPager
+      @data={{this.model}}
+      @title={{this.title}}
+      @pageSize={{this.pageSize}}
+    />
+  {{/if}}
+
+  <div>
+    <small>For fun:</small>
+  </div>
+  <span class='relative z-0 inline-flex items-center shadow-sm rounded-md'>
+    <label for={{this.inputGuid}}>Items per page:</label>
+    <button
+      type='button'
+      class='relative inline-flex items-center px-4 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500'
+      disabled={{eq 1 this.pageSize}}
+      {{on 'click' (fn this.increasePageSize -1)}}
+    >
+      Decrease
+    </button>
+    <input
+      id={{this.inputGuid}}
+      value={{this.pageSize}}
+      readonly={{true}}
+      size={{add (ceil (log10 this.pageSize)) 1}}
+      class='-ml-px relative inline-flex items-center text-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700 focus:outline-none cursor-default'
+    />
+    <button
+      type='button'
+      class='-ml-px relative inline-flex items-center px-4 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500'
+      disabled={{eq this.model.length this.pageSize}}
+      {{on 'click' (fn this.increasePageSize 1)}}
+    >
+      Increase
+    </button>
+  </span>
+
+</div>

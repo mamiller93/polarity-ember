@@ -1,0 +1,9 @@
+{{#if @page}}
+  <div class='rounded border border-gray-200 py-5 px-4 font-body' ...attributes>
+
+    {{#each-in @page as |key value|}}
+      <p class='font-bold'>{{key}}: {{value}}</p>
+    {{/each-in}}
+
+  </div>
+{{/if}}
