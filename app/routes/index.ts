@@ -12,6 +12,14 @@ export default class Index extends Route {
         key2: 'value2',
       },
       {
+        key: 'value',
+      },
+      {
+        name: 'Object2',
+        key: 'value',
+        key2: 'value2',
+      },
+      {
         title: 'Object3',
         data1: 'value1',
         data2: 'value2',
