@@ -30,75 +30,78 @@
   <div>
     <small>For fun:</small>
   </div>
-  <span class='relative z-0 inline-flex items-center shadow-sm rounded-md'>
+
+  <span class='inline-flex items-center'>
     <label for={{this.inputGuid}} class='mr-3'>Items per page:</label>
-    <button
-      type='button'
-      class='relative inline-flex items-center px-4 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 disabled:opacity-30'
-      disabled={{eq 1 this.pageSize}}
-      {{on 'click' (fn this.increasePageSize -1)}}
-    >
-      <span class='sr-only'>
-        Decrease
-      </span>
-      <svg
-        xmlns='http://www.w3.org/2000/svg'
-        xmlns:xlink='http://www.w3.org/1999/xlink'
-        aria-hidden='true'
-        role='img'
-        width='12px'
-        height='20px'
-        preserveAspectRatio='xMidYMid meet'
-        viewBox='0 0 24 24'
-      ><rect
-          x='0'
-          y='0'
-          width='24'
-          height='24'
-          fill='none'
-          stroke='none'
-        ></rect><path
-          d='M11.178 19.569a.998.998 0 0 0 1.644 0l9-13A.999.999 0 0 0 21 5H3a1.002 1.002 0 0 0-.822 1.569l9 13z'
-          fill='currentColor'
-        ></path></svg>
-    </button>
-    <input
-      id={{this.inputGuid}}
-      value={{this.pageSize}}
-      readonly={{true}}
-      size={{add (ceil (log10 this.pageSize)) 1}}
-      class='-ml-px relative inline-flex items-center text-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700 focus:outline-none cursor-default'
-    />
-    <button
-      type='button'
-      class='-ml-px relative inline-flex items-center px-4 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 disabled:opacity-30'
-      disabled={{eq this.model.length this.pageSize}}
-      {{on 'click' (fn this.increasePageSize 1)}}
-    >
-      <span class='sr-only'>
-        Increase
-      </span>
-      <svg
-        xmlns='http://www.w3.org/2000/svg'
-        xmlns:xlink='http://www.w3.org/1999/xlink'
-        aria-hidden='true'
-        role='img'
-        width='12px'
-        height='20px'
-        preserveAspectRatio='xMidYMid meet'
-        viewBox='0 0 24 24'
-      ><rect
-          x='0'
-          y='0'
-          width='24'
-          height='24'
-          fill='none'
-          stroke='none'
-        ></rect><g transform='translate(0 24) scale(1 -1)'><path
+    <span class='relative z-0 inline-flex items-center shadow-sm rounded-md'>
+      <button
+        type='button'
+        class='relative inline-flex items-center px-4 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 disabled:opacity-30'
+        disabled={{eq 1 this.pageSize}}
+        {{on 'click' (fn this.increasePageSize -1)}}
+      >
+        <span class='sr-only'>
+          Decrease
+        </span>
+        <svg
+          xmlns='http://www.w3.org/2000/svg'
+          xmlns:xlink='http://www.w3.org/1999/xlink'
+          aria-hidden='true'
+          role='img'
+          width='12px'
+          height='20px'
+          preserveAspectRatio='xMidYMid meet'
+          viewBox='0 0 24 24'
+        ><rect
+            x='0'
+            y='0'
+            width='24'
+            height='24'
+            fill='none'
+            stroke='none'
+          ></rect><path
             d='M11.178 19.569a.998.998 0 0 0 1.644 0l9-13A.999.999 0 0 0 21 5H3a1.002 1.002 0 0 0-.822 1.569l9 13z'
             fill='currentColor'
-          ></path></g></svg>
-    </button>
+          ></path></svg>
+      </button>
+      <input
+        id={{this.inputGuid}}
+        value={{this.pageSize}}
+        readonly={{true}}
+        size={{add (ceil (log10 this.pageSize)) 1}}
+        class='-ml-px relative inline-flex items-center text-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700 focus:outline-none cursor-default'
+      />
+      <button
+        type='button'
+        class='-ml-px relative inline-flex items-center px-4 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 disabled:opacity-30'
+        disabled={{eq this.model.length this.pageSize}}
+        {{on 'click' (fn this.increasePageSize 1)}}
+      >
+        <span class='sr-only'>
+          Increase
+        </span>
+        <svg
+          xmlns='http://www.w3.org/2000/svg'
+          xmlns:xlink='http://www.w3.org/1999/xlink'
+          aria-hidden='true'
+          role='img'
+          width='12px'
+          height='20px'
+          preserveAspectRatio='xMidYMid meet'
+          viewBox='0 0 24 24'
+        ><rect
+            x='0'
+            y='0'
+            width='24'
+            height='24'
+            fill='none'
+            stroke='none'
+          ></rect><g transform='translate(0 24) scale(1 -1)'><path
+              d='M11.178 19.569a.998.998 0 0 0 1.644 0l9-13A.999.999 0 0 0 21 5H3a1.002 1.002 0 0 0-.822 1.569l9 13z'
+              fill='currentColor'
+            ></path></g></svg>
+      </button>
+    </span>
   </span>
 
 </div>
