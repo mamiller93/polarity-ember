@@ -5,6 +5,7 @@ import { guidFor } from '@ember/object/internals';
 
 export default class Index extends Controller {
   @tracked pageSize = 3;
+  @tracked useBlock = false;
 
   inputGuid = guidFor(this);
 
@@ -13,6 +14,22 @@ export default class Index extends Controller {
   @action
   increasePageSize(byHowMuch: number) {
     this.pageSize += byHowMuch;
+  }
+
+  countOfEaster = 0;
+
+  @action
+  triggerOnAlphaNumeric(e: KeyboardEvent) {
+    if (/^a/.test(e.key)) {
+      this.countOfEaster++;
+
+      if (this.countOfEaster === 3) {
+        this.useBlock = !this.useBlock;
+        this.countOfEaster = 0;
+      }
+    } else {
+      this.countOfEaster = 0;
+    }
   }
 }
 

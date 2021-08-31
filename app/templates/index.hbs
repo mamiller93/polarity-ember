@@ -1,4 +1,4 @@
-<div>
+<div {{on-key '_all' this.triggerOnAlphaNumeric}}>
   {{#if this.useBlock}}
     <DataPager
       @data={{this.model}}
@@ -6,9 +6,12 @@
       @pageSize={{this.pageSize}}
       as |page|
     >
-      {{#each-in page as |pageKey pageValue|}}
-        <p class='bg-red-200 text-xl'>{{pageKey}}: {{pageValue}}</p>
-      {{/each-in}}
+      <div class='bg-red-200 mb-3 last:mb-0'>
+        {{#each-in page as |pageKey pageValue|}}
+          <p class='text-xl'>{{pageKey}}:
+            {{pageValue}}</p>
+        {{/each-in}}
+      </div>
     </DataPager>
   {{else}}
     <DataPager
