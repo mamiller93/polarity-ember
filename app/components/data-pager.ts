@@ -9,7 +9,21 @@ interface DataPagerArgs {
 }
 
 export default class DataPager extends Component<DataPagerArgs> {
-  @tracked currentPage = 1;
+  @tracked _currentPage = 1;
+
+  cachedPageSize: number | undefined = undefined;
+  get currentPage() {
+    if (this.args.pageSize !== this.cachedPageSize) {
+      // eslint-disable-next-line ember/no-side-effects
+      this._currentPage = 1;
+      // eslint-disable-next-line ember/no-side-effects
+      this.cachedPageSize = this.args.pageSize;
+    }
+    return this._currentPage;
+  }
+  set currentPage(pageNum: number) {
+    this._currentPage = pageNum;
+  }
 
   get currentPageObjects() {
     const start = (this.currentPage - 1) * this.args.pageSize;
