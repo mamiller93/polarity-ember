@@ -3,8 +3,32 @@
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
 module.exports = function (defaults) {
+  const SOURCEMAPS = true;
+  let environment = EmberApp.env();
+  let isProduction = environment === 'production';
+
+  console.info(`
+    Building:
+      SOURCEMAPS: ${SOURCEMAPS}
+      NODE_ENV: ${process.env.NODE_ENV}
+      isProduction: ${isProduction}
+  `);
+
   let app = new EmberApp(defaults, {
-    // Add options here
+    sourcemaps: {
+      enabled: SOURCEMAPS,
+    },
+    postcssOptions: {
+      compile: {
+        map: SOURCEMAPS,
+        plugins: [
+          require('tailwindcss')('./tailwind.config.js'),
+          require('autoprefixer')(),
+        ],
+        cacheInclude: [/.*\.(css|hbs)$/, /.tailwind\.config\.js$/],
+      },
+    },
+    // },
   });
 
   // Use `app.import` to add additional libraries to the generated
