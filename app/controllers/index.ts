@@ -3,9 +3,14 @@ import Controller from '@ember/controller';
 import { action } from '@ember/object';
 import { guidFor } from '@ember/object/internals';
 
+import { ModelFrom } from 'polarity-ember';
+import IndexRoute from 'polarity-ember/routes';
+
 export default class Index extends Controller {
   @tracked pageSize = 3;
   @tracked useBlock = false;
+
+  declare model: ModelFrom<IndexRoute>;
 
   inputGuid = guidFor(this);
 
