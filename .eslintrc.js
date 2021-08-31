@@ -17,6 +17,7 @@ module.exports = {
     'plugin:prettier/recommended',
   ],
   env: {
+    node: true,
     browser: true,
   },
   rules: {},
